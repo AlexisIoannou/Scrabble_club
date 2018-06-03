@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='https://bootswatch.com/4/yeti/bootstrap.css'>
+  </head>
+
+  <%include header.ejs%>
+
+  <body>
+
+
+  <div class="container">
+      <h1><%= title %></h1>
+
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <th scope="col">Profile</th>
+              <th scope="col">Forename</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Wins</th>
+              <th scope="col">Losses</th>
+              <th scope="col">Average Score</th>
+              <th scope="col">Highest Score</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+          </tr>
+      </thead>
+      <tbody>
+      <% if(members.length > 0){%>
+          <% for (i=0; i < members.length; i++){%>
+            <tr class="table-primary">
+                <td><a href="/members/profileMember/<%=members[i]._id%>"> Profile page</a></td>
+                <td><%= members[i].forename%></td>
+                <td><%= members[i].surname%></td>
+                <td><%= members[i].wins%></td>
+                <td><%= members[i].losses%></td>
+                <td><%= members[i].avgScore%></td>
+                <td><%= members[i].highest_score%></td>
+                <td><%= members[i].phone_number%></td>
+                <td><a href="/members/updateMember/<%=members[i]._id%>">Edit</a></td>
+                <td>
+                    <form method="post" action="/members/deleteMember/<%=members[i]._id%>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+          <%}%>
+      <%}%>
+      </tbody>
+  </table>
+  </div>
+
+  </body>
+</html>

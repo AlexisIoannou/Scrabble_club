@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='https://bootswatch.com/4/yeti/bootstrap.css'>
+  </head>
+
+  <%include header.ejs%>
+
+  <body>
+
+
+  <div class="container">
+      <h1><%= title %></h1>
+
+  <table class="table table-hover">
+      <thead>
+      <tr>
+          <th scope="col">forename</th>
+          <th scope="col">surname</th>
+          <th scope="col">wins</th>
+          <th scope="col">losses</th>
+          <th scope="col">Average Score</th>
+          <th scope="col">Highest Score</th>
+          <th scope="col">Phone number</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% if(members.length > 0){%>
+      <% for (i=0; i < members.length; i++){%>
+      <tr class="table-primary">
+          <td><%= members[i].forename%></td>
+          <td><%= members[i].surname%></td>
+          <td><%= members[i].wins%></td>
+          <td><%= members[i].losses%></td>
+          <td><%= members[i].avgScore%></td>
+          <td><%= members[i].highest_score%></td>
+          <td><%= members[i].phone_number%></td>
+      </tr>
+      <%}%>
+      <%}%>
+      </tbody>
+  </table>
+
+  </div>
+
+  </body>
+</html>

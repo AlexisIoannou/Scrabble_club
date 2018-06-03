@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='https://bootswatch.com/4/yeti/bootstrap.css'>
+</head>
+
+<body>
+
+<%include header.ejs%>
+
+<div class="container">
+    <h1><%= title %></h1>
+
+        <div class="form-group">
+            <label class="col-form-label">Forename: <%= profile.forename%></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">Surname:<%= profile.surname%></label>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label">Phone number: <%=profile.phone_number%></label>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-form-label" for="inputSmall">Wins: <%=profile.wins%></label>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-form-label">Losses: <%=profile.losses%></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">Total Games: <%=profile.totalGames%></label>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-form-label">Average score: <%=profile.avgScore%></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">Highest score: <%=profile.highest_score%></label>
+        </div>
+
+        <div class="form-group">
+            <h5>Game with highest score of member</h5>
+            <hr>
+            <table
+            <label class="col-form-label"><%= member1.forename%> vs <%= member2.forename%></label>
+            <br>
+            <label class="col-form-label"><%= profile.bestGame.score_player1%> - <%= profile.bestGame.score_player2%></label>
+            <br>
+            <label class="col-form-label"> Location: <%= profile.bestGame.place%></label>
+        </div>
+
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <!--<link rel='stylesheet' href='/stylesheets/style.css' />-->
+    <link rel='stylesheet' href='https://bootswatch.com/4/yeti/bootstrap.css'>
+</head>
+
+<%include header.ejs%>
+
+<body>
+
+
+<div class="container">
+    <h1><%= title %></h1>
+
+    <form class="form-group" action="/matches/recordMatch" method="post">
+        <div class="form-group">
+            <label>Pick player 1</label>
+            <select class="form-control" name="player1" required>
+                <option disabled selected value> Select player </option>
+                <% if(members.length > 0){%>
+                    <% for (i=0; i < members.length; i++){%>
+                        <option value="<%= members[i]._id%>"> <%= members[i].forename%>  </option>
+                    <%}%>
+                <%}%>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label> Score:</label>
+            <input type="number" name="player1score" required>
+        </div>
+
+        <div class="form-group">
+            <label>Pick player 2</label>
+            <select class="form-control" name="player2" required>
+                <option disabled selected value> Select player </option>
+                <% if(members.length > 0){%>
+                    <% for (i=0; i < members.length; i++){%>
+                        <option value="<%= members[i]._id%>"> <%= members[i].forename%>  </option>
+                    <%}%>
+                <%}%>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label> Score:</label>
+            <input type="number" name="player2score" required>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="inputSmall">Place</label>
+            <input class="form-control form-control-sm" type="text" placeholder="place..." id="place" name="place" required>
+        </div>
+
+
+
+        <button class="btn btn-primary" type="submit">Record Match</button>
+    </form>
+
+</div>
+
+</body>
+</html>
